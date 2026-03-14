@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_4_2473017</title>
+</head>
+<body>
+    <form>
+    <table border="1">
+        <td>
+            <table border="0">
+                <tr>
+                    <td colspan="2"><h2>Form Tambah Data User</h2></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Name     :</td>
+                    <td><input type="text" id="name" name="name" size="50" required
+                        oninvalid="this.setCustomValidity('Name is required!!!')"
+                        oninput="this.setCustomValidity('')"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Address     :</td>
+                    <td><input type="text" id="address" name="address" size="50" required
+                        oninvalid="this.setCustomValidity('Address is required!!!')"
+                        oninput="this.setCustomValidity('')"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Email     :</td>
+                    <td><input type="text" id="email" name="email" size="50" required
+                        oninvalid="this.setCustomValidity('Harap isi Bidang ini')"
+                        oninput="this.setCustomValidity('')"><br></td>
+                </tr>
+                <script>
+                    function validateEmail(input){
+                        if(!input.value.includes("@")){
+                            input.setCustomValidity(
+                            "Sertakan '@' pada alamat email ini. '" + input.value + "' tidak memiliki '@'."
+                            );
+                        } else {
+                            input.setCustomValidity("");
+                        }
+                    }
+                </script>
+                <tr>
+                    <td colspan="1 "rowspan="1">Homepage     :</td>
+                    <td><input type="text" id="homepage" name="homepage" size="50"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Birthday     :</td>
+                    <td><input type="date" id="birthday" name="birthday"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Favorit Color     :</td>
+                    <td><input type="color" id="favcolor" name="favcolor" value="black"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">IPK     :</td>
+                    <td><input type="number" id="ipk" name="ipk" min="0.0" max="4.0" step="0.1" value="0" required><br></td>
+                </tr>
+                <tr>
+                    <td colspan="1 "rowspan="1">Phone Number     :</td>
+                    <td><input type="tel" id="phone" name="phone"
+                        pattern="[0-9]{3}-[0-9]{7,10}"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Add</button></td>
+                </tr>
+            </table>
+        </td>
+    </table>
+    </form>
+</body>
+</html>
