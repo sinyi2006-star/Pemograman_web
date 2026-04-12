@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_2_2473017</title>
+    <script type="text/javascript">
+        function show_prompt(){
+            var n;
+            do {
+                n = prompt("A number?", "");
+            } while (isNaN(n)||n == ""|| n == null);
+
+            n = parseInt(n);
+            var hasil = "<table border='1' cellpadding='10'>";
+            for (var i = 1; i <= n; i++) {
+                hasil += "<tr>";
+                hasil += "<td>" + i + "</td>";
+                hasil += "<td>x</td>";
+                hasil += "<td>" + n + "</td>";
+                hasil += "<td>=</td>";
+                hasil += "<td>" + (i * n) + "</td>";
+                hasil += "</tr>";
+            }  
+            hasil += "</table>";
+            document.body.innerHTML = hasil;
+        }
+    </script>
+</head>
+<body onload="show_prompt()"></body>
+</html>

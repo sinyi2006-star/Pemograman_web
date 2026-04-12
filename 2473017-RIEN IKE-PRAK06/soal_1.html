@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_1_2473017</title>
+
+    <script type="text/javascript">
+        function Count() {
+            var a = parseInt(document.getElementById("num1").value);
+            var b = parseInt(document.getElementById("num2").value);
+
+            if (isNaN(a) && isNaN(b)) {
+                alert("angka pertama dan kedua harus angka");
+            } else if (isNaN(a)) {
+                alert("angka pertama bukan angka");
+            } else if (isNaN(b)) {
+                alert("angka kedua harus angka");
+            } else {
+                document.getElementById("a1").innerHTML = a;
+                document.getElementById("b1").innerHTML = b;
+                document.getElementById("hasil1").innerHTML = a + b;
+
+                document.getElementById("a2").innerHTML = a;
+                document.getElementById("b2").innerHTML = b;
+                document.getElementById("hasil2").innerHTML = a - b;
+            }
+        }
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        .hasil td {
+            border: 1px solid black;
+            font-size: 20px;
+            font-weight: bold;
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <table>
+            <tr>
+                <td>Angka Pertama:</td>
+                <td><input type="text" id="num1"/></td>
+            </tr>
+            <tr>
+                <td>Angka Kedua:</td>
+                <td><input type="text" id="num2"/></td>
+            </tr>
+            <tr>
+                <td><button onclick="Count()">Count</button></td>
+            </tr>
+        </table>
+
+        <table class="hasil" cellpadding="10">
+            <tr align="center">
+                <td id="a1"></td>
+                <td>+</td>
+                <td id="b1"></td>
+                <td>=</td>
+                <td id="hasil1"></td>
+            </tr>
+            <tr align="center">
+                <td id="a2"></td>
+                <td>-</td>
+                <td id="b2"></td>
+                <td>=</td>
+                <td id="hasil2"></td>
+            </tr>
+        </table>
+</body>
+</html>
+

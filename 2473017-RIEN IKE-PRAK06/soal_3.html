@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_3_2473017</title>
+    <style>
+        table {
+            width: 800px;
+            height: 600px;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid white;
+
+        }
+        .isi {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        function Piramida() {
+            var n = document.getElementById("tinggi").value
+            n = parseInt(n);
+            var hasil = "<table>";
+
+            for (var i = 1; i <= n; i++) {
+                hasil += "<tr>"; // baris
+                
+                for (var j = 1; j <= n - i; j++) {
+                    hasil += "<td></td>";
+                }// spasi kiri biar ketengah
+
+                for (var k = 1; k <= (2*i - 1); k++) {
+                    hasil += "<td class='isi'></td>";
+                } // isi piramidanya
+                hasil += "</tr>";
+            }
+            hasil += "</table>";
+            document.getElementById("output").innerHTML = hasil;
+        }
+    </script>
+</head>
+<body>
+    Tinggi Piramida: <input type="text" id="tinggi">
+    <br><button onclick="Piramida()">proses</button>
+    <div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_4_2473017</title>
+    <style>
+        table {
+            border: 2px solid grey;
+        }
+
+        td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        .biru {
+            color: blue; 
+            font-weight: bold;
+        }
+
+        #output {
+            color: gray;
+        }
+
+        input[type="button"] {
+            color: blue;
+            font-weight: bold;
+        }
+
+        input[type="button"]:hover {
+            border: 2px solid paleturquoise;
+        }
+    </style>
+     
+    <script type="text/javascript">
+        function convert() {
+        var input = document.getElementById("input").value;
+        var mode = document.getElementById("mode").value;
+        // DECIMAL → BINER
+        if (mode == "dec-bin") {
+            var num = parseInt(input);
+            if (isNaN(num) || num < 0 || num > 255) {
+                alert("Input harus angka 0 - 255");
+                return;
+            }
+            var biner = "";
+            for (var i = 7; i >= 0; i--) {
+                var nilai = Math.pow(2, i);
+
+                if (num >= nilai) {
+                    biner += "1";
+                    num -= nilai;
+                } else {
+                    biner += "0";
+                }
+            }
+
+            document.getElementById("output").value = biner;
+        }
+        // BINER → DECIMAL
+        else {
+            // validasi harus 8 digit + hanya 0/1
+            if (input.length != 8 || /[^01]/.test(input)) {
+                alert("Input harus 8 digit (0 atau 1)");
+                return;
+            }
+            var hasil = 0;
+            for (var i = 0; i < 8; i++) {
+                hasil += parseInt(input[i]) * Math.pow(2, 7 - i);
+            }
+            document.getElementById("output").value = hasil;
+        }
+    }
+
+    function resetForm() {
+        document.getElementById("input").value = "";
+        document.getElementById("output").value = "";
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td class="biru">Input : </td>
+                <td><input type="text" id="input"/></td>
+            </tr>
+            <tr>
+                <td class="biru">Output : </td>
+                <td><input type="text" id="output" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <select id="mode">
+                        <option value="dec-bin">decimal-biner</option>
+                        <option value="bin-dec">biner-decimal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="PROSES" onclick="convert()">
+                    <input type="button" value="RESET" onclick="resetForm()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
