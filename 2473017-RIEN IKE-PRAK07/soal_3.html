@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_3_2473017</title>
+    <script>
+        let dataArray = [];
+
+        function tambahData() {
+            const input = document.getElementById('dataInput');
+            const nilai = parseFloat(input.value);
+            
+            if (!isNaN(nilai)) {
+                dataArray.push(nilai);
+                input.value = ""; // hapus isi input stlh ditambah
+            } else {
+                alert("Masukkan angka yang valid.");
+            }
+        }
+
+        function prosesOperasi(operasi) {
+            const output = document.getElementById('hasilOutput');
+
+            if (operasi === 'display') {
+                    output.value = dataArray.join(', ');
+                } 
+                else if (operasi === 'count') {
+                    output.value = dataArray.length;
+                } 
+                else if (operasi === 'sum') {
+                    let total = 0;
+                    for (let angka of dataArray) { total += angka; }
+                    output.value = total;
+                } 
+                else if (operasi === 'average') {
+                    let total = 0;
+                    for (let angka of dataArray) { total += angka; }
+                    output.value = total / dataArray.length;
+                } 
+                else if (operasi === 'max') {
+                    output.value = Math.max(...dataArray);
+                } 
+                else if (operasi === 'min') {
+                    output.value = Math.min(...dataArray);
+                } 
+                else if (operasi === 'ganjil') {
+                    let hasil = dataArray.filter(n => n % 2 !== 0);
+                    output.value = hasil.join(', ');
+                } 
+                else if (operasi === 'genap') {
+                    let hasil = dataArray.filter(n => n % 2 === 0);
+                    output.value = hasil.join(', ');
+                } 
+                else if (operasi === 'hapus') {
+                    dataArray = [];
+                    output.value = "";
+                }
+        }
+    </script>
+
+    <style>
+        table {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #212020;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Data</td>
+            <td><input type="text" id="dataInput"></td>
+        </tr>
+        <tr>
+            <td><button onclick="tambahData()">Add</button></td>
+            <td>
+                <select id="selectOp" onchange="prosesOperasi(this.value)">
+                    <option value="">Pilih Operasi</option>
+                    <option value="display">Display</option>
+                    <option value="count">Count</option>
+                    <option value="sum">Sum</option>
+                    <option value="average">Average</option>
+                    <option value="max">Max</option>
+                    <option value="min">Min</option>
+                    <option value="ganjil">Ganjil</option>
+                    <option value="genap">Genap</option>
+                    <option value="hapus">Hapus</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hasil</td>
+            <td><input type="text" id="hasilOutput" readonly></td>
+        </tr>
+    </table>
+</body>
+</html>

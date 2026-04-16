@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_1_2473017</title>
+
+    <script type="text/javascript">
+        function call_onKeyPress(ob) {
+            var obval = ob.value;
+
+            if (obval.length > 256) {
+                ob.value = obval.substr(0, 256);
+            }
+
+            document.getElementById("txt2").value = ob.value.length + "/256";
+        }
+    </script>
+
+    <style>
+        .box {
+            padding: 10px;
+            width: 285px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            width: 200px;
+            height: 80px;
+            resize: none;
+        }
+
+        .counter-box {
+            width: 200px;
+            text-align: right;
+            margin-top: 3px;
+        }
+
+        .counter-box input {
+            width: 60px;
+            font-size: 12px;
+            text-align: right;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <table>
+            <tr>
+                <td>Judul</td>
+                <td>:</td>
+                <td><input type="text" style="width:200px;"></td>
+            </tr>
+            <tr>
+                <td>Deskripsi</td>
+                <td>:</td>
+                <td>
+                    <textarea onkeyup="call_onKeyPress(this)"></textarea>
+                    <div class="counter-box">
+                        <input type="text" id="txt2" value="0/256" readonly>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

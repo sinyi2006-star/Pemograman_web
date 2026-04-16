@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_2_2473017</title>
+    <script type="text/javascript">
+        function mouseOverRow(ob) {
+            ob.className = "c3";// jadi hijau
+        }
+
+        function mouseOutRow(ob, warna) {
+            ob.className = warna;// balik ke warna awal
+        }
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 350px;
+        }
+
+        td {
+            padding: 5px;
+            border: 1px solid #666;
+        }
+
+        .atas{
+            background-color: #99aa99;
+        }
+
+        .c1 {
+            background-color: #99b3d9; /* biru */
+        }
+
+        .c2 {
+            background-color: #e6b38c; /* orange */
+        }
+
+        .c3 {
+            background-color: #CCFFAA;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr class="atas">
+            <td>Position</th>
+            <td>Programming Language</td>
+            <td>Ratings</td>
+        </tr>
+        <tr class="c1" onmouseover="mouseOverRow(this)" onmouseout="mouseOutRow(this,'c1')">
+            <td>1</td>
+            <td>C</td>
+            <td>18.058%</td>
+        </tr>
+        <tr class="c2" onmouseover="mouseOverRow(this)" onmouseout="mouseOutRow(this,'c2')">
+            <td>2</td>
+            <td>Java</td>
+            <td>18.051%</td>
+        </tr>
+        <tr class="c1" onmouseover="mouseOverRow(this)" onmouseout="mouseOutRow(this,'c1')">
+            <td>3</td>
+            <td>C++</td>
+            <td>9.707%</td>
+        </tr>
+
+        <tr class="c2" onmouseover="mouseOverRow(this)" onmouseout="mouseOutRow(this,'c2')">
+            <td>4</td>
+            <td>PHP</td>
+            <td>9.662%</td>
+        </tr>
+
+        <tr class="c1" onmouseover="mouseOverRow(this)" onmouseout="mouseOutRow(this,'c1')">
+            <td>5</td>
+            <td>(Visual) Basic</td>
+            <td>6.392%</td>
+        </tr>
+    </table>
+</body>
+</html>
