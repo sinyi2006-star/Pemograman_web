@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_2_2473017</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        body {
+            margin: 20px;
+            padding: 10px;
+            width: 350px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            width: 170px;
+            padding: 3px;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 3px 6px;
+        }
+        div {
+            margin-top: 3px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // add
+            $("#addButton").click(function() {
+                var nama = $("#namaInput").val();
+                if (nama.trim() !== "") {
+                    $("<div>" + nama + "</div>").appendTo("body");
+                    $("#namaInput").val(""); // kosongkan input
+                }
+            });
+            //search
+            $("#searchButton").click(function() {
+                var keyword = $("#namaInput").val();
+                $("div").css("text-decoration", "none");
+
+                if (keyword.trim() !== "") {
+                    // cek string yg mengandung kata yg dicari
+                    $("div:contains('" + keyword + "')").css("text-decoration", "underline");// ksi garis bawah
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <input type="text" id="namaInput">
+    <button id="addButton">Add</button>
+    <button id="searchButton">Search</button>
+
+    <div>Bill Gates</div>
+    <div>John Resig</div>
+    <div>George Martin</div>
+    <div>Malcom John Sinclair</div>
+    <div>J. Ohn</div>
+</body>
+</html>

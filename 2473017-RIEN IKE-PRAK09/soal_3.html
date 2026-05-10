@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_3_2473017</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;
+            text-align: center;
+        }
+
+        span {
+            color: red;
+        }
+        
+    </style>
+
+    <script>
+       $(document).ready(function () {
+            //kotak diklik
+            $("div").click(function() {
+                $(this).css("background-color", "red");
+                $(this).attr("id", "kotak-merah");
+            });
+
+            // Change colors diklik
+            $("button").click(function () {
+                $("div").each(function (index, domEle) {
+                    if ($(domEle).attr("id") === "kotak-merah") {
+                        return false; 
+                    } else {
+                        $(domEle).css("background-color", "yellow");
+                    }
+                });
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <button>Change colors</button>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

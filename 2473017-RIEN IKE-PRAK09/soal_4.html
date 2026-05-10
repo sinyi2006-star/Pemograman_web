@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_4_2473017</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        table {
+            margin: 20px;
+        }
+        td {
+            padding: 10px 0;
+        }
+        hr {
+            margin: 10px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".header").click(function() {
+                var flag = $(this).is(":checked");
+                
+                if (flag) {
+                    // klo header dicentang, centang semua body
+                    $("input.body").prop("checked", true);
+                } else {
+                    // klo header tidak dicentang, hapus centang semua body
+                    $("input.body").prop("checked", false);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <table border="1" cellpadding="0" cellspacing="0"></table>
+        <tr>
+            <td width="50" align="center">
+                <input class="header" type="checkbox"/><br/>
+                <hr/>
+                <input class="body" type="checkbox"/><br/>
+                <input class="body" type="checkbox"/><br/>
+                <input class="body" type="checkbox"/><br/>
+                <input class="body" type="checkbox"/><br/>
+                <input class="body" type="checkbox"/><br/>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

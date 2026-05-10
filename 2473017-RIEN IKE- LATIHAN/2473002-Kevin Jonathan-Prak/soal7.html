@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Nama        : Rien Ike
+NRP         : 2473017
+-->
+
+<html>
+<head>
+    <title>2473017 - Rien ike</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            margin: 0;
+        }
+
+        .amplop {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #ecf0f1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .amplop::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 100px solid #bdc3c7;
+            z-index: 2;
+        }
+
+        .amplop::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-left: 150px solid #95a5a6;
+            border-right: 150px solid #95a5a6;
+            border-bottom: 100px solid #ecf0f1;
+            border-top: 100px solid transparent;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="amplop"></div>
+
+</body>
+</html>

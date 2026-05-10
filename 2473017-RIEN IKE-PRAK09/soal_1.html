@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_1_2473017</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 20px;
+        }
+        ol, ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu-container {
+            display: flex;
+            gap: 15px;
+        }
+        .item {
+            position: relative;
+            background-color: #ff1493; /* Pink color */
+            color: white;
+            width: 130px;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .item ol {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: white;
+            border: 2px solid #ff1493;
+            width: 100%;
+            z-index: 10;
+        }
+        .item ol li {
+            text-align: left;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .item ol li a {
+            color: black; 
+        }
+        
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("li.item ol").hide();
+            $("li.item").hover(function() {
+                    $(this).children("ol").show();
+                },function() {
+                    $(this).children("ol").hide();
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <ol class="menu-container">
+        <li class="item"><u>jQuery</u>
+            <ol>
+                <li><a href="#"><u>Download</u></a></li>
+                <li><a href="#"><u>Documentation</u></a></li>
+                <li><a href="#"><u>Blog</u></a></li>
+            </ol>
+        </li>
+        <li class="item"><u>Community</u>
+            <ol>
+                <li><a href="#"><u>Mailing List</u></a></li>
+                <li><a href="#"><u>Tutorials</u></a></li>
+                <li><a href="#"><u>Demos</u></a></li>
+                <li><a href="#"><u>Plugins</u></a></li>
+            </ol>
+        </li>
+        <li class="item"><u>Development</u>
+            <ol>
+                <li><a href="#"><u>Source Code</u></a></li>
+                <li><a href="#"><u>Bug Tracking</u></a></li>
+                <li><a href="#"><u>Recent Changes</u></a></li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

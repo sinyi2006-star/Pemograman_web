@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal_5_2473017</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 300px;
+            background: #f9f9f9;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        .company-list div {
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#searchBox").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".company-list div").each(function() {
+                    var companyName = $(this).text().toLowerCase();
+                    if (value !== "" && companyName.indexOf(value) !== -1) {
+                        $(this).addClass("highlight");
+                    } else {
+                        $(this).removeClass("highlight");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="searchBox" placeholder="Ketik nama perusahaan...">
+        
+        <div class="company-list">
+            <div>Sun Microsystem</div>
+            <div>Apache Software Foundation</div>
+            <div>Oracle Coorporation</div>
+            <div>International Bussiness Machines</div>
+            <div>Microsoft Coorporation</div>
+            <div>Apple Inc</div>
+            <div>Sap Ag</div>
+            <div>Accenture</div>
+            <div>Computer Sciences Coorporation</div>
+            <div>Google</div>
+            <div>Softbank</div>
+            <div>Yahoo</div>
+        </div>
+    </div>
+
+</body>
+</html>

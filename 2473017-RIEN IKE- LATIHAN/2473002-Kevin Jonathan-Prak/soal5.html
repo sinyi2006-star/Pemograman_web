@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+Nama        : Rien Ike
+NRP         : 2473017
+-->
+
+<html>
+<head>
+    <title>2473017 - Rien ike</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .kalkulator {
+            width: 250px;
+            background-color: #e0e0e0;
+            padding: 15px;
+            border: 2px solid #333;
+            margin: 50px auto;
+        }
+
+        #layar {
+            width: 100%;
+            height: 40px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .susunan-tombol {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        button {
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .tombol-lebar {
+            grid-column: span 2;
+        }
+
+        .tombol-merah {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function tekan(nilai) {
+            document.getElementById("layar").value += nilai;
+        }
+
+        function bersihkan() {
+            document.getElementById("layar").value = "";
+        }
+
+        function hitung() {
+            var isiLayar = document.getElementById("layar").value;
+            
+            try {
+                var hasil = eval(isiLayar); 
+                document.getElementById("layar").value = hasil;
+            } catch (error) {
+                document.getElementById("layar").value = "Error";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="kalkulator">
+        <input type="text" id="layar" readonly>
+
+        <div class="susunan-tombol">
+            <button class="tombol-merah tombol-lebar" onclick="bersihkan()">C</button>
+            <button onclick="tekan('/')">/</button>
+            <button onclick="tekan('*')">x</button>
+            
+            <button onclick="tekan('7')">7</button>
+            <button onclick="tekan('8')">8</button>
+            <button onclick="tekan('9')">9</button>
+            <button onclick="tekan('-')">-</button>
+            
+            <button onclick="tekan('4')">4</button>
+            <button onclick="tekan('5')">5</button>
+            <button onclick="tekan('6')">6</button>
+            <button onclick="tekan('+')">+</button>
+            
+            <button onclick="tekan('1')">1</button>
+            <button onclick="tekan('2')">2</button>
+            <button onclick="tekan('3')">3</button>
+            <button onclick="hitung()" style="background-color: orange; font-weight: bold;">=</button>
+            
+            <button class="tombol-lebar" onclick="tekan('0')">0</button>
+            <button onclick="tekan('.')">.</button>
+        </div>
+    </div>
+
+</body>
+</html>
