@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473017-Nama Anda</title> 
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+        .filter-box {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+            height: 90px;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #000;
+            color: white;
+        }
+    </style>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btnSearch").click(function() {
+                var kelas = $(":radio[name='kelas']:checked").val();
+                var fileUrl = "";
+                
+                if (kelas === "all") {
+                    fileUrl = "nilai.js"; 
+                } else if (kelas === "A") {
+                    fileUrl = "nilaiA.js"; 
+                } else if (kelas === "B") {
+                    fileUrl = "nilaiB.js"; 
+                }
+
+                if(fileUrl !== "") {
+                    $.getJSON(fileUrl, function(data) { 
+                        var tbody = $("#tabelData");
+                        tbody.empty(); 
+                        $.each(data.nilai, function(index, mhs) {
+                            var row = "<tr>" +
+                                "<td>" + mhs.nrp + "</td>" +
+                                "<td>" + mhs.nama + "</td>" +
+                                "<td>" + mhs.kelas + "</td>" +
+                                "<td>" + mhs.nilaiakhir + "</td>" + 
+                                "</tr>";
+                            tbody.append(row);
+                        });
+                        $("#tabelData tr:even").css("background-color", "#FFFFCC"); 
+                        $("#tabelData tr:odd").css("background-color", "#CCFFAA"); 
+                        
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemograman Web SI Tahun Ajaran 2023/2024</h3>
+    
+    <div class="filter-box">
+        <input type="radio" name="kelas" value="all" checked> All<br>
+        <input type="radio" name="kelas" value="A"> Kelas A<br>
+        <input type="radio" name="kelas" value="B"> Kelas B<br>
+        <button type="button" id="btnSearch" style="margin-top: 5px;">Search</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody id="tabelData">
+            </tbody>
+    </table>
+</body>
+</html>
